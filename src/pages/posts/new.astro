@@ -1,0 +1,116 @@
+---
+import Card from "../../components/Card.astro"
+import Btn from "../../components/Btn.astro"
+import Base from "../../layouts/Base.astro"
+
+const pageTitle = "وبلاگ بهرامی"
+const header = {
+  theme: "quaternary",
+  heading: "پست جدید",
+  paragraph: "همینجا بنویس و ذخیره کن...",
+}
+---
+
+<Base pageTitle={pageTitle} header={header}>
+  <section class="container-001">
+    <div class="miniform">
+      <h2>چی مینویسی؟؟؟ ✍️</h2>
+      <Btn type="3D" theme="primary">تمام صفحه</Btn>
+    </div>
+    <textarea id="text" dir="auto"></textarea>
+    <label class="miniform">
+      <span>نام فایل:</span>
+      <input type="text" id="filename">
+    </label>
+    <Btn type="3D" theme="primary">ذخیره کن 💾</Btn>
+  </section>
+</Base>
+
+<style lang="scss">
+  .container-001 {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    max-width: 200rem;
+    margin: 0 auto;
+  }
+  .miniform {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+
+    input {
+      flex-grow: 1;
+      flex-shrink: 1;
+      background: var(--clr-neutral-950);
+      border: 0.5rem solid var(--clr-quaternary-500);
+      color: var(--clr-neutral-100);
+      font: var(--txt-code-fa);
+      padding: 1rem 2rem;
+    }
+  }
+  h2 { margin: 0; }
+  #text {
+    
+    overflow: auto;
+    background: var(--clr-neutral-950);
+    border: 0.5rem solid var(--clr-quaternary-500);
+    resize: vertical;
+    color: var(--clr-neutral-100);
+    font: var(--txt-code-fa);
+    padding: 3rem 4rem;
+    height: 100rem;
+  }
+  textarea:focus, input:focus {
+    outline: 0.5rem solid var(--clr-primary-500);
+    outline-offset: 1rem;
+  }
+
+  @media only screen and (max-width: 46em) {
+    .container-001 { max-width: 150rem; }
+  }
+  @media only screen and (max-width: 25em) {
+    .miniform {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+
+<script is:inline>
+  const $ = e => document.querySelectorAll(e)
+  const doc = document.documentElement
+
+  function dl(content, filename = 'post.md') {
+    const blob = new Blob([content], {type: 'text/plain'})
+    const link = document.createElement('a')
+    link.download = filename
+    link.href = URL.createObjectURL(blob)
+    link.click()
+    URL.revokeObjectURL(link.href)
+  }
+
+  $('.btn')[0].addEventListener('click', () => {
+    if (doc.requestFullscreen) doc.requestFullscreen()
+    if (doc.msRequestFullscreen) doc.msRequestFullscreen()
+    if (doc.mozRequestFullscreen) doc.mozRequestFullscreen()
+    if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen()
+    if (document.exitFullscreen) document.exitFullscreen()
+    if (document.msexitFullscreen) document.msexitFullscreen()
+    if (document.mozexitFullscreen) document.mozexitFullscreen()
+    if (document.webkitexitFullscreen) document.webkitexitFullscreen()
+  })
+
+  $('#text')[0].addEventListener('input', () => {
+    localStorage.setItem('content', $('#text')[0].value)
+  })
+
+  window.addEventListener('DOMContentLoaded', () => {
+   $('#text')[0].value = localStorage.getItem('content') ?? '...'
+  })
+
+  $('.btn')[1].addEventListener('click', () => dl( 
+    $('#text')[0].value, $('#filename')[0].value 
+  ))
+</script>

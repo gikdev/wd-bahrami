@@ -1,0 +1,60 @@
+---
+import Card from "../../components/Card.astro"
+import Base from "../../layouts/Base.astro"
+
+const pageTitle = "وبلاگ بهرامی"
+const header = {
+  theme: "secondary",
+  heading: "لیست مقالات",
+  paragraph: "تمام مقاله‌هایی که نوشته‌ام / ترجمه کردم",
+}
+let allPosts = [], isNoPosts = false
+try {
+  allPosts = await Astro.glob('./*.md')
+  allPosts = allPosts.filter(post => !post.frontmatter.draft)
+  allPosts.sort((a, b) => b.frontmatter.id - a.frontmatter.id)
+  if (allPosts.length < 1) isNoPosts = true
+} catch {
+  isNoPosts = true
+}
+---
+
+<Base pageTitle={pageTitle} header={header}>
+  <section class="container-001">
+    {!isNoPosts && allPosts.map(post => (
+      <Card theme={post.frontmatter.theme} title={post.frontmatter.title} date={post.frontmatter.date} url={post.url} />
+    ))}
+    {(isNoPosts) && <p class="not-anything-yet">هنوز خبری نیس... 😐</p>}
+  </section>
+</Base>
+
+<style lang="scss">
+  .container-001 {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    max-width: 200rem;
+    margin: 0 auto;
+  }
+  .not-anything-yet {
+    width: 100%;
+    text-align: center;
+    font: var(--txt-body-big-bold);
+  }
+  h2 {
+    font: var(--txt-heading-2);
+    color: var(--clr-neutral-100);
+  }
+
+  @media only screen and (max-width: 46em) {
+    .container-001 { max-width: 150rem; }
+  }
+  @media only screen and (max-width: 25em) {
+    .container-002 {
+      flex-direction: column;
+      align-items: flex-end;
+
+      h2 { width: 100%; }
+    }
+  }
+</style>

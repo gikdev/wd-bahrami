@@ -1,0 +1,51 @@
+---
+const { type, theme, isInAnchor, isDisabled } = Astro.props
+---
+
+<button class="btn" data-type={type ?? 'flat'} data-theme={theme ?? 'neutral'} tabindex={isInAnchor ? "-1" : "0"} disabled={isDisabled}>
+  <slot />
+</button>
+
+<style lang="scss">
+  .btn {
+    height: 10rem;
+    padding: 0 5rem;
+    font: var(--txt-body-medium-regular);
+    cursor: pointer;
+    border-radius: 2rem;
+    transition: transform 100ms, box-shadow 100ms;
+  }
+  .btn:not([data-type="3D"]):hover { transform: scale(1.1); }
+  .btn:not([data-type="3D"]):active { transform: scale(0.9); }
+
+  .btn[data-type="outline"] {
+    border: 0.5rem solid var(--t-clr-300, var(--clr-neutral-300));
+    color: var(--t-clr-100, var(--clr-neutral-100));
+    background: transparent;
+  }
+  .btn[data-type="flat"] {
+    border: none;
+    color: var(--t-clr-text, var(--clr-neutral-100));
+    background: var(--t-clr-500, var(--clr-neutral-700));
+  }
+  .btn[data-type="3D"] {
+    border: none;
+    color: var(--t-clr-text, var(--clr-neutral-100));
+    background: var(--t-clr-500, var(--clr-neutral-700));
+    box-shadow: 0 0.75rem 0 0 var(--t-clr-700, var(--clr-neutral-900));
+    transform: translateY(0);
+  }
+  .btn[data-type="3D"]:hover {
+    box-shadow: 0 1rem 0 0 var(--t-clr-700, var(--clr-neutral-900));
+    transform: translateY(-0.25rem);
+  }
+  .btn[data-type="3D"]:active {
+    box-shadow: 0 0 0 0 var(--t-clr-700, var(--clr-neutral-900));
+    transform: translateY(1rem);
+  }
+
+  .btn[disabled] {
+    opacity: 75%;
+    cursor: not-allowed;
+  }
+</style>

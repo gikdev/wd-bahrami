@@ -1,0 +1,38 @@
+---
+import Btn from "./Btn.astro"
+const {title, date, url, theme} = Astro.props
+---
+
+<div class="card" data-theme={theme}>
+  <p class="card__title">{title}</p>
+  <p class="card__date">نوشته شده در تاریخ {date}</p>
+  <a class="has-btn" href={url}>
+    <Btn type="outline" theme="neutral" isInAnchor={true}>ادامه...</Btn>
+  </a>
+</div>
+
+<style lang="scss" scoped>
+  .card {
+    background-color: var(--t-clr-700, var(--clr-neutral-700));
+    height: 45rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    padding: 4rem 5rem;
+    border-radius: 2rem;
+    
+    &__title {
+      width: 100%;
+      font: var(--txt-body-big-bold);
+      color: var(--clr-neutral-100);
+    }
+    &__date {
+      width: 100%;
+      font: var(--txt-body-small-regular);
+      color: var(--clr-neutral-300);
+    }
+    p { margin: 0; }
+  }
+</style>

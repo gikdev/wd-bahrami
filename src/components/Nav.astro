@@ -1,0 +1,130 @@
+---
+import MenuBtn from "./MenuBtn.astro";
+---
+
+<nav class="nav">
+  <div class="phoney">
+    <a href="/" class="link" data-type="logo">
+    <img class="logo" src="https://wd-bahrami.storage.iran.liara.space/images/wd-bahrami-logo.png" alt="">
+    <span>وبلاگ بهرامی</span></a>
+    <button id="toggler"><MenuBtn /></button>
+  </div>
+  <ul id="to-toggle">
+    <li><a href="/posts/" class="link">مقالات</a></li>
+    <li><a href="javascript:void(0)" class="link disabled" tabindex="-1">تگ‌ها</a></li>
+    <li><a href="javascript:void(0)" class="link disabled" tabindex="-1">درباره</a></li>
+    <li><a href="javascript:void(0)" class="link disabled" tabindex="-1">تماس</a></li>
+  </ul>
+</nav>
+
+<style lang="scss">
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .logo {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 0;
+      margin: 0;
+    }
+
+    #toggler { 
+      display: none; 
+      padding: 1rem;
+      border: none;
+      background: transparent;
+    }
+    
+    .link {
+      font: var(--txt-body-big-regular);
+      color: var(--clr-neutral-300);
+      text-decoration: none;
+      border-bottom: 0.5rem solid transparent;
+      
+      &.disabled {
+        cursor: not-allowed;
+        
+        &:hover {
+          color: var(--clr-neutral-300);
+          border-bottom-color: transparent;
+        }
+      }
+      &:hover {
+        color: var(--clr-neutral-100);
+        border-bottom-color: var(--clr-neutral-100);
+      }
+      
+      &[data-type="logo"] {
+        font: var(--txt-heading-3);
+        color: var(--clr-neutral-100);
+        border: 1rem solid transparent;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        &:hover {
+          color: var(--clr-neutral-50);
+          animation: border-rotation 300ms infinite;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      list-style-type: none;
+      gap: 4rem;
+    }
+  }
+
+
+  @media only screen and (max-width: 46em) {
+    .nav {
+      .link {
+        font: var(--txt-body-medium-regular);
+
+        &[data-type="logo"] {
+          font: var(--txt-heading-4);
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 25em) {
+    .nav {
+      background: var(--clr-neutral-900);
+      flex-direction: column;
+      align-items: stretch;
+      #toggler { display: block; }
+    }
+    .phoney {
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #to-toggle {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 4rem 4rem;
+      gap: 4rem;
+      display: none;
+
+      a { display: inline-block; width: 100%; }
+
+      &.active { display: flex; }
+    }
+  }
+</style>
+
+<script is:inline>
+  document.querySelector('#toggler').addEventListener('click', () => {
+    document.querySelector('#to-toggle').classList.toggle('active')
+    document.querySelector('button').isOpen = false
+  })
+</script>

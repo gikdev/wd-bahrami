@@ -1,0 +1,52 @@
+:root {
+  --clr-neutral-50: hsl(200, 10%, 95%);
+  --clr-neutral-100: hsl(204, 10%, 90%);
+  --clr-neutral-300: hsl(200, 10%, 70%);
+  --clr-neutral-500: hsl(199, 10%, 50%);
+  --clr-neutral-700: hsl(200, 10%, 30%);
+  --clr-neutral-900: hsl(204, 10%, 10%);
+  --clr-neutral-950: hsl(200, 10%, 5%);
+
+  --clr-primary-100: hsl(219, 70%, 90%);
+  --clr-primary-300: hsl(220, 70%, 70%);
+  --clr-primary-500: hsl(220, 70%, 50%);
+  --clr-primary-700: hsl(220, 70%, 30%);
+  --clr-primary-900: hsl(219, 70%, 10%);
+
+  --clr-secondary-100: hsl(39, 70%, 90%);
+  --clr-secondary-300: hsl(40, 70%, 70%);
+  --clr-secondary-500: hsl(40, 70%, 50%);
+  --clr-secondary-700: hsl(40, 70%, 30%);
+  --clr-secondary-900: hsl(39, 70%, 10%);
+  
+  --clr-tertiary-100: hsl(300, 70%, 90%);
+  --clr-tertiary-300: hsl(300, 70%, 70%);
+  --clr-tertiary-500: hsl(300, 70%, 50%);
+  --clr-tertiary-700: hsl(300, 70%, 30%);
+  --clr-tertiary-900: hsl(300, 70%, 10%);
+
+  --clr-quaternary-100: hsl(150, 70%, 90%);
+  --clr-quaternary-300: hsl(150, 70%, 70%);
+  --clr-quaternary-500: hsl(150, 70%, 50%);
+  --clr-quaternary-700: hsl(150, 70%, 30%);
+  --clr-quaternary-900: hsl(150, 70%, 10%);
+}
+
+:root {
+  --txt-heading-1: 900 10rem/150% SahelFD, sans-serif;
+  --txt-heading-2: 700 8rem/150% SahelFD, sans-serif;
+  --txt-heading-3: 700 6rem/150% SahelFD, sans-serif;
+  --txt-heading-4: 700 4rem/150% SahelFD, sans-serif;
+  --txt-heading-5: 700 3rem/150% SahelFD, sans-serif;
+  --txt-heading-6: 700 2rem/150% SahelFD, sans-serif;
+
+  --txt-body-big-bold: 700 5rem/180% Vazirmatn, sans-serif;
+  --txt-body-big-regular: 400 5rem/180% Vazirmatn, sans-serif;
+  --txt-body-medium-bold: 700 4rem/180% Vazirmatn, sans-serif;
+  --txt-body-medium-regular: 400 4rem/180% Vazirmatn, sans-serif;
+  --txt-body-small-bold: 700 3rem/180% Vazirmatn, sans-serif;
+  --txt-body-small-regular: 400 3rem/180% Vazirmatn, sans-serif;
+
+  --txt-code: 400 4rem/150% JetBrainsMono, monospace;
+  --txt-code-fa: 400 4rem/150% VazirCode, monospace;
+}

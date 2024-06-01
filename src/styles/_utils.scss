@@ -1,0 +1,63 @@
+.u-txt-h1 { font: var(--txt-heading-1); }
+.u-txt-h2 { font: var(--txt-heading-2); }
+.u-txt-h3 { font: var(--txt-heading-3); }
+.u-txt-h4 { font: var(--txt-heading-4); }
+.u-txt-h5 { font: var(--txt-heading-5); }
+.u-txt-h6 { font: var(--txt-heading-6); }
+
+.u-txt-body-bb { font: var(--txt-body-big-bold); }
+.u-txt-body-br { font: var(--txt-body-big-regular); }
+.u-txt-body-mb { font: var(--txt-body-medium-bold); }
+.u-txt-body-mr { font: var(--txt-body-medium-regular); }
+.u-txt-body-sb { font: var(--txt-body-small-bold); }
+.u-txt-body-sr { font: var(--txt-body-small-regular); }
+
+.u-txt-code { font: var(--txt-code); }
+
+
+
+[data-theme="neutral"] {
+  --t-clr-50: var(--clr-neutral-50);
+  --t-clr-100: var(--clr-neutral-100);
+  --t-clr-300: var(--clr-neutral-300);
+  --t-clr-500: var(--clr-neutral-500);
+  --t-clr-700: var(--clr-neutral-700);
+  --t-clr-900: var(--clr-neutral-900);
+  --t-clr-950: var(--clr-neutral-950);
+}
+[data-theme="primary"] {
+  --t-clr-100: var(--clr-primary-100);
+  --t-clr-300: var(--clr-primary-300);
+  --t-clr-500: var(--clr-primary-500);
+  --t-clr-700: var(--clr-primary-700);
+  --t-clr-900: var(--clr-primary-900);
+  --t-clr-text: var(--clr-neutral-100);
+}
+[data-theme="secondary"] {
+  --t-clr-100: var(--clr-secondary-100);
+  --t-clr-300: var(--clr-secondary-300);
+  --t-clr-500: var(--clr-secondary-500);
+  --t-clr-700: var(--clr-secondary-700);
+  --t-clr-900: var(--clr-secondary-900);
+  --t-clr-text: var(--clr-neutral-900);
+}
+[data-theme="tertiary"] {
+  --t-clr-100: var(--clr-tertiary-100);
+  --t-clr-300: var(--clr-tertiary-300);
+  --t-clr-500: var(--clr-tertiary-500);
+  --t-clr-700: var(--clr-tertiary-700);
+  --t-clr-900: var(--clr-tertiary-900);
+  --t-clr-text: var(--clr-neutral-100);
+}
+[data-theme="quaternary"] {
+  --t-clr-100: var(--clr-quaternary-100);
+  --t-clr-300: var(--clr-quaternary-300);
+  --t-clr-500: var(--clr-quaternary-500);
+  --t-clr-700: var(--clr-quaternary-700);
+  --t-clr-900: var(--clr-quaternary-900);
+  --t-clr-text: var(--clr-neutral-900);
+}
+
+
+
+//...

@@ -1,0 +1,22 @@
+---
+import Base from "./Base.astro"
+const { frontmatter: fm } = Astro.props
+---
+
+<Base pageTitle={fm.title} header={{ theme: fm.theme, heading: fm.title, paragraph: `نوشته شده در تاریخ ${fm.date}`, }}>
+  <section>
+    <slot />
+  </section>
+</Base>
+
+<style lang="scss">
+  section {
+    max-width: 200rem;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @media only screen and (max-width: 46em) {
+    section { max-width: 150rem; }
+  }
+</style>

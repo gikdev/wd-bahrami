@@ -1,0 +1,29 @@
+---
+import '../styles/main.scss'
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+const { pageTitle, header } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>{pageTitle}</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="description" content="وبلاگ یه نوجوون که برنامه‌نویسی دوست داره...">
+</head>
+<body>
+  <Header theme={header.theme} heading={header.heading} paragraph={header.paragraph} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>
+
+<style lang="scss">
+  main { padding: 20rem 4rem; }
+</style>
